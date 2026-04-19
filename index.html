@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Muhammed Hanan PP – Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-dot" id="cursor-dot"></div>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">MH<span class="logo-dot">.</span></a>
+      <button class="hamburger" id="hamburger" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#education" class="nav-link">Education</a></li>
+        <li><a href="#skills" class="nav-link">Skills</a></li>
+        <li><a href="#projects" class="nav-link">Projects</a></li>
+        <li><a href="#certifications" class="nav-link">Certs</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg-grid"></div>
+    <div class="container hero-container">
+      <div class="hero-left">
+        <div class="hero-badge reveal">
+          <span class="badge-dot"></span> Available for opportunities
+        </div>
+        <h1 class="hero-name reveal reveal-delay-1">
+          Muhammed<br/><span class="name-accent">Hanan PP</span>
+        </h1>
+        <p class="hero-role reveal reveal-delay-2">CS (AI) Student &nbsp;·&nbsp; TKM College of Engineering</p>
+        <p class="hero-bio reveal reveal-delay-3">
+          Second-year BTech student building practical AI and ML systems.
+          I lead teams, ship code, and turn ideas into working products.
+        </p>
+        <div class="hero-actions reveal reveal-delay-4">
+          <a href="#projects" class="btn-primary">View My Work</a>
+          <a href="#contact" class="btn-ghost">Get in Touch</a>
+        </div>
+        <div class="hero-scroll reveal reveal-delay-4">
+          <div class="scroll-track"><div class="scroll-thumb"></div></div>
+          <span>Scroll</span>
+        </div>
+      </div>
+      <div class="hero-right reveal reveal-delay-2">
+        <div class="photo-frame">
+          <div class="photo-ring"></div>
+          <div class="photo-area" id="photo-area" title="Click to add your photo">
+            <img id="avatar-img" src="" alt="Muhammed Hanan PP" style="display:none;width:100%;height:100%;object-fit:cover;border-radius:50%;" />
+            <div class="photo-placeholder" id="photo-placeholder">
+              <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              <span>Add Photo</span>
+            </div>
+          </div>
+          <div class="photo-tag">BTech · AI · 2nd Year</div>
+          <div class="photo-orb orb-1"></div>
+          <div class="photo-orb orb-2"></div>
+        </div>
+        <input type="file" id="photo-input" accept="image/*" style="display:none" />
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-label reveal">About Me</div>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <h2 class="section-heading">Who I Am</h2>
+          <p>I'm a <strong>second-year BTech student specialising in Computer Science with Artificial Intelligence</strong> at TKM College of Engineering. I'm passionate about software development, machine learning, and building AI-driven solutions that make a real difference.</p>
+          <p>I enjoy leading collaborative teams and currently head development efforts on academic projects in <strong>Java and Machine Learning</strong>. My goal is to build practical systems that solve real-world problems through clean, thoughtful engineering.</p>
+        </div>
+        <div class="stats-grid reveal reveal-delay-1">
+          <div class="stat-card">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-label">Projects</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="3">0</span>
+            <span class="stat-label">Certifications</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num stat-text">4th</span>
+            <span class="stat-label">Semester</span>
+          </div>
+          <div class="stat-card">
+            <span class="stat-num" data-target="2">0</span>
+            <span class="stat-label">Team Lead Roles</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <div class="section-label reveal">Education</div>
+      <h2 class="section-heading reveal">Academic Background</h2>
+      <div class="edu-timeline reveal reveal-delay-1">
+        <div class="edu-card">
+          <div class="edu-year">2024 – 2028</div>
+          <div class="edu-info">
+            <div class="edu-degree">BTech – Computer Science (Artificial Intelligence)</div>
+            <div class="edu-school">TKM College of Engineering</div>
+          </div>
+          <span class="edu-badge">4th Semester</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-label reveal">Technical Skills</div>
+      <h2 class="section-heading reveal">What I Work With</h2>
+      <div class="skills-grid reveal reveal-delay-1">
+        <div class="skill-group">
+          <div class="skill-group-label">Programming</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Python</span>
+            <span class="skill-tag">Java</span>
+            <span class="skill-tag">C</span>
+            <span class="skill-tag">SQL</span>
+            <span class="skill-tag">R</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Technologies</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Machine Learning</span>
+            <span class="skill-tag">Arduino</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <div class="skill-group-label">Concepts</div>
+          <div class="skill-tags">
+            <span class="skill-tag">Data Structures</span>
+            <span class="skill-tag">Clustering Algorithms</span>
+            <span class="skill-tag">DBMS</span>
+            <span class="skill-tag">Operating Systems</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <div class="section-label reveal">Projects</div>
+      <h2 class="section-heading reveal">What I've Built</h2>
+      <div class="projects-grid">
+
+        <div class="proj-card reveal reveal-delay-1">
+          <div class="proj-number">01</div>
+          <div class="proj-role">Team Lead &nbsp;·&nbsp; 4 Members</div>
+          <h3 class="proj-name">PowerGuard</h3>
+          <p class="proj-subtitle">Electricity Bill Prediction System</p>
+          <p class="proj-desc">A machine learning system that predicts electricity bills from consumption data. Led a 4-member team with GitHub-based collaboration.</p>
+          <div class="proj-tech">
+            <span class="tech-pill">Java</span>
+            <span class="tech-pill">Machine Learning</span>
+          </div>
+          <a class="proj-link" href="https://github.com/mohdhanan195" target="_blank">
+            GitHub &rarr;
+          </a>
+        </div>
+
+        <div class="proj-card reveal reveal-delay-2">
+          <div class="proj-number">02</div>
+          <div class="proj-role">Team Lead &nbsp;·&nbsp; 5 Members</div>
+          <h3 class="proj-name">Customer Segmentation</h3>
+          <p class="proj-subtitle">Using Clustering Algorithms</p>
+          <p class="proj-desc">ML model that groups customers by purchasing behavior using clustering algorithms to uncover meaningful segments.</p>
+          <div class="proj-tech">
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">Machine Learning</span>
+          </div>
+          <a class="proj-link" href="https://github.com/mohdhanan195" target="_blank">
+            GitHub &rarr;
+          </a>
+        </div>
+
+        <div class="proj-card reveal reveal-delay-3">
+          <div class="proj-number">03</div>
+          <div class="proj-role">IoT Project &nbsp;·&nbsp; 1st Year</div>
+          <h3 class="proj-name">Water Level Monitor</h3>
+          <p class="proj-subtitle">IoT Monitoring System</p>
+          <p class="proj-desc">IoT-based water level monitoring with Arduino UNO and sensors for efficient resource management. Built as part of Idea Lab.</p>
+          <div class="proj-tech">
+            <span class="tech-pill">Arduino UNO</span>
+            <span class="tech-pill">Sensors</span>
+            <span class="tech-pill">IoT</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CERTIFICATIONS -->
+  <section id="certifications">
+    <div class="container">
+      <div class="section-label reveal">Certifications</div>
+      <h2 class="section-heading reveal">Learning & Credentials</h2>
+      <div class="certs-list">
+        <div class="cert-card reveal reveal-delay-1">
+          <div class="cert-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M9 12l-2 9 5-3 5 3-2-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-name">Cyber Security</div>
+            <div class="cert-org">NPTEL</div>
+          </div>
+          <span class="cert-badge done">Completed</span>
+        </div>
+        <div class="cert-card reveal reveal-delay-2">
+          <div class="cert-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M9 12l-2 9 5-3 5 3-2-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-name">Data Science for Engineers</div>
+            <div class="cert-org">NPTEL</div>
+          </div>
+          <span class="cert-badge done">Completed</span>
+        </div>
+        <div class="cert-card reveal reveal-delay-3">
+          <div class="cert-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M9 12l-2 9 5-3 5 3-2-9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="cert-info">
+            <div class="cert-name">Programming in Java</div>
+            <div class="cert-org">NPTEL</div>
+          </div>
+          <span class="cert-badge ongoing">Ongoing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-label reveal">Contact</div>
+      <h2 class="section-heading reveal">Get in Touch</h2>
+      <div class="contact-grid">
+        <div class="contact-info reveal reveal-delay-1">
+          <a class="contact-item" href="mailto:mohdhanan195@gmail.com">
+            <div class="ci-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Email</div>
+              <div class="ci-val">mohdhanan195@gmail.com</div>
+            </div>
+          </a>
+          <a class="contact-item" href="tel:+919778559152">
+            <div class="ci-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">Phone</div>
+              <div class="ci-val">+91 9778559152</div>
+            </div>
+          </a>
+          <a class="contact-item" href="https://github.com/mohdhanan195" target="_blank">
+            <div class="ci-icon">
+              <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+            </div>
+            <div>
+              <div class="ci-label">GitHub</div>
+              <div class="ci-val">github.com/mohdhanan195</div>
+            </div>
+          </a>
+        </div>
+        <div class="contact-cta reveal reveal-delay-2">
+          <p class="cta-headline">Open to collabs,<br/>internships & cool ideas.</p>
+          <a href="mailto:mohdhanan195@gmail.com" class="btn-primary">Send a Message</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container footer-inner">
+      <span class="footer-logo">MH<span class="logo-dot">.</span></span>
+      <span class="footer-copy">&copy; 2025 Muhammed Hanan PP</span>
+      <a href="#hero" class="back-to-top">Back to top &uarr;</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
