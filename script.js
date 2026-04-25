@@ -1,4 +1,5 @@
 /* ===== CUSTOM CURSOR ===== */
+/* ===== CUSTOM CURSOR ===== */
 const cursor    = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursor-dot');
 
