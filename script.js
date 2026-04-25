@@ -1,9 +1,8 @@
 /* ===== CUSTOM CURSOR ===== */
-const cursor = document.getElementById('cursor');
+const cursor    = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursor-dot');
 
-let mouseX = 0, mouseY = 0;
-let curX = 0, curY = 0;
+let mouseX = 0, mouseY = 0, curX = 0, curY = 0;
 
 document.addEventListener('mousemove', e => {
   mouseX = e.clientX;
@@ -26,107 +25,82 @@ document.querySelectorAll('a, button, .proj-card, .skill-tag, .stat-card').forEa
   el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
 });
 
-/* ===== NAV SCROLL EFFECT ===== */
-const navbar = document.getElementById('navbar');
+/* ===== NAV SCROLL ===== */
+const navbar   = document.getElementById('navbar');
+const navLinks = document.getElementById('nav-links');
+const hamburger = document.getElementById('hamburger');
+
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 40) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
+  navbar.classList.toggle('scrolled', window.scrollY > 40);
   highlightNav();
 });
 
-/* ===== SMOOTH SCROLL FOR NAV LINKS ===== */
+/* ===== SMOOTH SCROLL ===== */
 document.querySelectorAll('a[href^="#"]').forEach(link => {
   link.addEventListener('click', function(e) {
     const target = document.querySelector(this.getAttribute('href'));
     if (!target) return;
     e.preventDefault();
-    const offset = 70;
-    const top = target.getBoundingClientRect().top + window.scrollY - offset;
-    window.scrollTo({ top, behavior: 'smooth' });
-    // Close mobile menu
+    window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - 70, behavior: 'smooth' });
     navLinks.classList.remove('open');
     hamburger.classList.remove('active');
   });
 });
 
-/* ===== ACTIVE NAV HIGHLIGHT ===== */
+/* ===== ACTIVE NAV ===== */
 const sections = document.querySelectorAll('section[id]');
-const navLinks = document.getElementById('nav-links');
 
 function highlightNav() {
   const scrollY = window.scrollY + 120;
   sections.forEach(sec => {
-    const top    = sec.offsetTop;
-    const bottom = top + sec.offsetHeight;
-    const id     = sec.getAttribute('id');
-    const link   = document.querySelector(`.nav-link[href="#${id}"]`);
+    const link = document.querySelector(`.nav-link[href="#${sec.id}"]`);
     if (!link) return;
-    if (scrollY >= top && scrollY < bottom) {
-      link.classList.add('active');
-    } else {
-      link.classList.remove('active');
-    }
+    link.classList.toggle('active', scrollY >= sec.offsetTop && scrollY < sec.offsetTop + sec.offsetHeight);
   });
 }
 highlightNav();
 
-/* ===== HAMBURGER MOBILE MENU ===== */
-const hamburger = document.getElementById('hamburger');
+/* ===== HAMBURGER ===== */
 hamburger.addEventListener('click', () => {
   navLinks.classList.toggle('open');
   hamburger.classList.toggle('active');
 });
 
 /* ===== SCROLL REVEAL ===== */
-const revealEls = document.querySelectorAll('.reveal');
-
-const revealObserver = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-    }
-  });
+const revealObserver = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-revealEls.forEach(el => revealObserver.observe(el));
+document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
-/* ===== COUNT-UP ANIMATION ===== */
-const counters = document.querySelectorAll('.stat-num[data-target]');
-
-const countObserver = new IntersectionObserver((entries) => {
+/* ===== COUNT-UP ===== */
+const countObserver = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (!entry.isIntersecting) return;
-    const el     = entry.target;
+    const el = entry.target;
     const target = parseInt(el.dataset.target);
-    const duration = 1000;
     const start  = performance.now();
-
-    function step(now) {
-      const elapsed  = now - start;
-      const progress = Math.min(elapsed / duration, 1);
-      const eased    = 1 - Math.pow(1 - progress, 3);
-      el.textContent = Math.round(eased * target);
-      if (progress < 1) requestAnimationFrame(step);
-    }
+    const duration = 1000;
+    const step = now => {
+      const p = Math.min((now - start) / duration, 1);
+      el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target);
+      if (p < 1) requestAnimationFrame(step);
+    };
     requestAnimationFrame(step);
     countObserver.unobserve(el);
   });
 }, { threshold: 0.5 });
 
-counters.forEach(c => countObserver.observe(c));
+document.querySelectorAll('.stat-num[data-target]').forEach(c => countObserver.observe(c));
 
 /* ===== PHOTO UPLOAD ===== */
-const photoArea    = document.getElementById('photo-area');
-const photoInput   = document.getElementById('photo-input');
-const avatarImg    = document.getElementById('avatar-img');
-const placeholder  = document.getElementById('photo-placeholder');
+const photoArea   = document.getElementById('photo-area');
+const photoInput  = document.getElementById('photo-input');
+const avatarImg   = document.getElementById('avatar-img');
+const placeholder = document.getElementById('photo-placeholder');
 
 photoArea.addEventListener('click', () => photoInput.click());
-
-photoInput.addEventListener('change', function () {
+photoInput.addEventListener('change', function() {
   const file = this.files[0];
   if (!file) return;
   const reader = new FileReader();
@@ -137,3 +111,73 @@ photoInput.addEventListener('change', function () {
   };
   reader.readAsDataURL(file);
 });
+
+/* ===== EMAILJS CONTACT FORM =====
+   SETUP STEPS (takes 3 minutes):
+   1. Sign up free at https://www.emailjs.com
+   2. Add a Gmail service → copy the Service ID → replace YOUR_SERVICE_ID below
+   3. Create an email template with variables: {{from_name}}, {{reply_to}}, {{message}}
+      → copy the Template ID → replace YOUR_TEMPLATE_ID below
+   4. Go to Account → copy Public Key → replace YOUR_PUBLIC_KEY below
+   That's it. The form will send emails directly to mohdhanan195@gmail.com.
+================================================= */
+const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+
+(function() {
+  if (EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  }
+})();
+
+const form       = document.getElementById('contact-form');
+const sendBtn    = document.getElementById('send-btn');
+const formStatus = document.getElementById('form-status');
+
+form.addEventListener('submit', function(e) {
+  e.preventDefault();
+
+  const name    = document.getElementById('from_name').value.trim();
+  const email   = document.getElementById('reply_to').value.trim();
+  const message = document.getElementById('message').value.trim();
+
+  if (!name || !email || !message) {
+    showStatus('Please fill in all fields.', 'error');
+    return;
+  }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+    showStatus('That email address doesn\'t look right.', 'error');
+    return;
+  }
+
+  // If EmailJS isn't configured yet, fall back to mailto
+  if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    window.location.href = `mailto:mohdhanan195@gmail.com?subject=Portfolio contact from ${encodeURIComponent(name)}&body=${body}`;
+    return;
+  }
+
+  sendBtn.disabled = true;
+  sendBtn.textContent = 'Sending…';
+
+  emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
+    .then(() => {
+      showStatus('Sent! I\'ll get back to you soon.', 'success');
+      form.reset();
+    })
+    .catch(err => {
+      console.error('EmailJS error:', err);
+      showStatus('Something went wrong. Try emailing me directly.', 'error');
+    })
+    .finally(() => {
+      sendBtn.disabled = false;
+      sendBtn.textContent = 'Send Message';
+    });
+});
+
+function showStatus(msg, type) {
+  formStatus.textContent = msg;
+  formStatus.className = 'form-status ' + type;
+  setTimeout(() => { formStatus.className = 'form-status'; }, 5000);
+}
