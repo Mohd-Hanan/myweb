@@ -1,3 +1,29 @@
+/* ===== THEME TOGGLE ===== */
+const root = document.documentElement;
+const themeToggle = document.getElementById('theme-toggle');
+const themeMeta = document.querySelector('meta[name="theme-color"]');
+const savedTheme = localStorage.getItem('portfolio-theme');
+const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+
+function applyTheme(theme) {
+  root.dataset.theme = theme;
+  if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F7F8FC' : '#0B0B0F');
+  if (themeToggle) {
+    const nextTheme = theme === 'light' ? 'dark' : 'light';
+    themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
+  }
+}
+
+applyTheme(savedTheme || systemTheme);
+
+if (themeToggle) {
+  themeToggle.addEventListener('click', () => {
+    const nextTheme = root.dataset.theme === 'light' ? 'dark' : 'light';
+    localStorage.setItem('portfolio-theme', nextTheme);
+    applyTheme(nextTheme);
+  });
+}
+
 /* ===== CUSTOM CURSOR ===== */
 const cursor    = document.getElementById('cursor');
 const cursorDot = document.getElementById('cursor-dot');
@@ -115,10 +141,10 @@ photoInput.addEventListener('change', function() {
 /* ===== EMAILJS CONTACT FORM =====
    SETUP STEPS (takes 3 minutes):
    1. Sign up free at https://www.emailjs.com
-   2. Add a Gmail service → copy the Service ID → replace YOUR_SERVICE_ID below
+   2. Add a Gmail service -> copy the Service ID -> replace YOUR_SERVICE_ID below
    3. Create an email template with variables: {{from_name}}, {{reply_to}}, {{message}}
-      → copy the Template ID → replace YOUR_TEMPLATE_ID below
-   4. Go to Account → copy Public Key → replace YOUR_PUBLIC_KEY below
+      -> copy the Template ID -> replace YOUR_TEMPLATE_ID below
+   4. Go to Account -> copy Public Key -> replace YOUR_PUBLIC_KEY below
    That's it. The form will send emails directly to mohdhanan195@gmail.com.
 ================================================= */
 const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
@@ -159,7 +185,7 @@ form.addEventListener('submit', function(e) {
   }
 
   sendBtn.disabled = true;
-  sendBtn.textContent = 'Sending…';
+  sendBtn.textContent = 'Sending...';
 
   emailjs.sendForm(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, form)
     .then(() => {
