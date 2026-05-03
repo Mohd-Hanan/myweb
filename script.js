@@ -7,7 +7,7 @@ const systemTheme = window.matchMedia('(prefers-color-scheme: light)').matches ?
 
 function applyTheme(theme) {
   root.dataset.theme = theme;
-  if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F7F8FC' : '#0B0B0F');
+  if (themeMeta) themeMeta.setAttribute('content', theme === 'light' ? '#F6F6F4' : '#0B0B0F');
   if (themeToggle) {
     const nextTheme = theme === 'light' ? 'dark' : 'light';
     themeToggle.setAttribute('aria-label', `Switch to ${nextTheme} theme`);
