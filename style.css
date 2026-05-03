@@ -378,6 +378,8 @@ section { padding: 6rem 2.5rem; }
   color: rgba(255,255,255,0.72);
 }
 [data-theme="light"] .proj-card:nth-child(2) .proj-role,
+[data-theme="light"] .proj-card:nth-child(2) .proj-name,
+[data-theme="light"] .proj-card:nth-child(2) .proj-number,
 [data-theme="light"] .proj-card:nth-child(2) .proj-link,
 [data-theme="light"] .stat-card:nth-child(even) .stat-num {
   color: #fff;
@@ -395,9 +397,16 @@ section { padding: 6rem 2.5rem; }
 }
 [data-theme="light"] .cert-card:nth-child(2) .cert-name,
 [data-theme="light"] .contact-form-box .form-status,
-[data-theme="light"] .contact-form-box #send-btn {
+[data-theme="light"] .contact-form-box .form-title {
   color: #fff;
 }
+[data-theme="light"] .contact-form-box #send-btn {
+  background: #fff;
+  color: #111;
+  border: 1px solid rgba(255,255,255,0.18);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.22);
+}
+[data-theme="light"] .contact-form-box #send-btn:hover:not(:disabled) { background: #f0f0f0; }
 
 #certifications { background: var(--bg2); }
 .certs-list { display: flex; flex-direction: column; gap: 10px; }

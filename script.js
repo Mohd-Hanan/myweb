@@ -177,10 +177,13 @@ form.addEventListener('submit', function(e) {
     return;
   }
 
-  // If EmailJS isn't configured yet, fall back to mailto
+  // If EmailJS isn't configured yet, open a prefilled Gmail compose window.
   if (EMAILJS_PUBLIC_KEY === 'YOUR_PUBLIC_KEY') {
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
     const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
-    window.location.href = `mailto:mohdhanan195@gmail.com?subject=Portfolio contact from ${encodeURIComponent(name)}&body=${body}`;
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=mohdhanan195@gmail.com&su=${subject}&body=${body}`;
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+    showStatus('Opening Gmail with your message...', 'success');
     return;
   }
 
